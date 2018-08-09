@@ -14,6 +14,7 @@ class HogDetails extends React.Component {
         <p> Specialty: {this.props.hog.specialty}</p>
         <p> {this.props.hog.greased ? "SO GREASY MMMM" : "Sadly, not greasy."} </p>
         <p> Highest Medal Achieved: {this.props.hog["highest medal achieved"]}</p>
+        <button onClick={() => this.props.clearSelectedHog()}>Back to all porkers</button>
       </div>
     )
   }
