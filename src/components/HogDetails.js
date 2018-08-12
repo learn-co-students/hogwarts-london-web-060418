@@ -16,7 +16,7 @@ class HogDetails extends React.Component {
     let imageSrc = `../hog-imgs/${copiedHogsName}.jpg`
 
     return (
-      <div onClick={this.props.clearHog} className="ui eight wide column" style={{border: "1px solid #000"}}>
+      <div onClick={this.props.clearHog} className="ui eight wide column" style={{border: "1px solid #000", cursor: "pointer"}}>
         <h3>{this.props.hog.name}</h3>
         <img src= {imageSrc} />
         <p>{this.greaseString(this.props.hog.greased)}</p>

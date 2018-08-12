@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   sortHogsByName = () => {
-    const hogsSortedByName = hogs.slice().sort(function(a,b) {
+    const hogsSortedByName = hogs.slice().sort((a,b) => {
       return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
     });
     this.setState({
@@ -22,8 +22,9 @@ class App extends Component {
   }
 
   sortHogsByWeight = () => {
-    const hogsSortedByWeight = hogs.slice().sort(function(a,b) {
-      return (a['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > b['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) ? 1 : ((b['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'] > a['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']) ? -1 : 0);
+    const hogsSortedByWeight = hogs.slice().sort((a,b) => {
+      const weight = "weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water";
+      return (a[weight] > b[weight]) ? 1 : ((b[weight] > a[weight]) ? -1 : 0);
     });
     this.setState({
       hogs: hogsSortedByWeight
@@ -64,13 +65,13 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="App">
-          <button onClick={this.sortHogsByName} >SORT PIGS BY NAME</button>
-          <button onClick={this.sortHogsByWeight} >SORT PIGS BY WEIGHT</button>
-          <button onClick={this.filterClean} >FILTER clean PIGLETS</button>
-          <button onClick={this.filterGreasy} >FILTER greasy PIGLETS</button>
-          <button onClick={this.reset} >RESET</button>
-          <button onClick={this.toggleHogs} >TOGGLE HOGS</button>
-          < Nav />
+        <button onClick={this.sortHogsByName} >SORT PIGS BY NAME</button>
+        <button onClick={this.sortHogsByWeight} >SORT PIGS BY WEIGHT</button>
+        <button onClick={this.filterClean} >FILTER clean PIGLETS</button>
+        <button onClick={this.filterGreasy} >FILTER greasy PIGLETS</button>
+        <button onClick={this.reset} >RESET</button>
+        <button onClick={this.toggleHogs} >TOGGLE HOGS</button>
+        < Nav />
         < HogList hogs={this.state.hidden ? [] : this.state.hogs} />
       </div>
     )
